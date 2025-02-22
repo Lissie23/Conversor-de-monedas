@@ -95,15 +95,15 @@ def updateExchangeCurrency():
 
     elif origen == "MXN" and destino == "USD":
         mxn[1] = nuevaTasa
-        print("Tasa actualizada: de USD a MXN =", mxn[1])
+        print("Tasa actualizada: de MXN a USD =", mxn[1])
     
     elif origen == "EUR" and destino == "USD":
         eur[0] = nuevaTasa
-        print("Tasa actualizada: de USD a MXN =", eur[0])
+        print("Tasa actualizada: de EUR a USD =", eur[0])
 
     elif origen == "EUR" and destino == "MXN":
         eur[1] = nuevaTasa
-        print("Tasa actualizada: de USD a MXN =", eur[1])
+        print("Tasa actualizada: de EUR a MXN =", eur[1])
 
     else:
         print("Par de monedas no válido")
