@@ -60,3 +60,13 @@ def convertCurrency():
     else:
         print("Conversión no disponible")
 
+#Mostrar las tasas de cambio al usuario
+def showExchangeCurrency(): 
+    print("Tasas de cambio actuales")
+    print("USD =", usd[0], "MXN")
+    print("USD =", usd[1], "EUR")
+    print("MXN =", mxn[0], "EUR")
+    print("MXN =", mxn[1], "USD")
+    print("EUR =", eur[0], "USD")
+    print("EUR =", eur[1], "MXN")
+
