@@ -16,3 +16,47 @@ def showMenu():
     print("2. Ver tasas de cambio")
     print("3. Actualizar tasas")
     print("4. Salir")
+
+#Permitir al usuario seleccionar la moneda de origen y destino (USD, EUR, MXN)
+def convertCurrency():  
+    origen = input("Ingresa la moneda de origen (USD, MXN, EUR): ").upper()
+    destino = input("Ingresa la moneda de destino (USD, MXN, EUR): ").upper()
+
+    if origen == destino:
+        print("Las monedas son iguales. No es necesaria la conversión.")
+        return
+    
+    try:
+        cantidad = float(input("Ingresa la cantidad a convertir: "))
+    except ValueError:
+        print("Error: Ingresa un número válido.")
+        return
+    
+    #Operaciones para el cambio de moneda
+    if origen == "USD" and destino == "MXN": 
+        resultado = cantidad * usd[0]
+        print(cantidad, origen, "equivale a",resultado, destino)
+        
+    elif origen == "USD" and destino == "EUR":
+        resultado = cantidad * usd[1]
+        print(cantidad, origen, "equivale a", resultado, destino)
+
+    elif origen == "MXN" and destino == "EUR":
+        resultado = cantidad * mxn[0]
+        print(cantidad, origen, "equivale a", resultado, destino)
+
+    elif origen == "MXN" and destino == "USD":
+        resultado = cantidad * mxn[1]
+        print(cantidad, origen, "equivale a", resultado, destino)
+    
+    elif origen == "EUR" and destino == "USD":
+        resultado = cantidad * eur[0]
+        print(cantidad, origen, "equivale a", resultado, destino)
+
+    elif origen == "EUR" and destino == "MXN":
+        resultado = cantidad * eur[1]
+        print(cantidad, origen, "equivale a", resultado, destino)
+
+    else:
+        print("Conversión no disponible")
+
