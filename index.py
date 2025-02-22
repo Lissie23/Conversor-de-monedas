@@ -109,4 +109,22 @@ def updateExchangeCurrency():
         print("Par de monedas no válido")
         return
 
+while True:
+    showMenu()
+    opcionElegida = input("Seleccione la opción que desea ejecutar: ")
 
+    if opcionElegida == "1":
+        convertCurrency()
+
+    elif opcionElegida == "2":
+        showExchangeCurrency()
+
+    elif opcionElegida == "3":
+        updateExchangeCurrency()
+
+    elif opcionElegida == "4":
+        print("Gracias por usar el conversor de monedas. ¡Hasta luego!")
+        break
+
+    else:
+        print("Opción no válida. Intenta de nuevo.")
