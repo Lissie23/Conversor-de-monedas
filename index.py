@@ -70,3 +70,43 @@ def showExchangeCurrency():
     print("EUR =", eur[0], "USD")
     print("EUR =", eur[1], "MXN")
 
+#Actualizar las tasas de cambio
+def updateExchangeCurrency(): 
+    origen = input("Ingresa la moneda de origen (USD, MXN, EUR):").upper()
+    destino = input("Ingresa la moneda de destino (USD, MXN, EUR):").upper()
+    
+    try:
+        nuevaTasa = float(input("Ingresa la nueva tasa: "))
+    except ValueError:
+        print("Error: Ingresa un número válido.")
+        return
+
+    if origen == "USD" and destino == "MXN":
+        usd[0] = nuevaTasa
+        print("Tasa actualizada: de USD a MXN =", usd[0])
+
+    elif origen == "USD" and destino == "EUR":
+        usd[1] = nuevaTasa
+        print("Tasa actualizada: de USD a MXN =", usd[1])
+
+    elif origen == "MXN" and destino == "EUR":
+        mxn[0] = nuevaTasa
+        print("Tasa actualizada: de MXN a EUR =", mxn[0])
+
+    elif origen == "MXN" and destino == "USD":
+        mxn[1] = nuevaTasa
+        print("Tasa actualizada: de USD a MXN =", mxn[1])
+    
+    elif origen == "EUR" and destino == "USD":
+        eur[0] = nuevaTasa
+        print("Tasa actualizada: de USD a MXN =", eur[0])
+
+    elif origen == "EUR" and destino == "MXN":
+        eur[1] = nuevaTasa
+        print("Tasa actualizada: de USD a MXN =", eur[1])
+
+    else:
+        print("Par de monedas no válido")
+        return
+
+
