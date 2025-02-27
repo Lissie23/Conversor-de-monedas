@@ -7,124 +7,102 @@ eur = [1.05, 21.28]
 # mxn[0] para convertir de mxn a eur
 # mxn[1] para convertir de mxn a usd
 # eur[0] para convertir de eur a usd
-# eur[1] para convertir de eur a mxc
+# eur[1] para convertir de eur a mxn
 
-#Mostrar al usuario el menu
+# Mostrar al usuario el menú
 def showMenu(): 
-    print("Bienvenido a tu conversor de moneda")
-    print("1. Convertir moneda")
-    print("2. Ver tasas de cambio")
-    print("3. Actualizar tasas")
-    print("4. Salir")
+    print("\n🌍💰 Bienvenido a tu conversor de moneda 💰🌍")
+    print("1️.Convertir moneda")
+    print("2️. Ver tasas de cambio")
+    print("3️. Actualizar tasas")
+    print("4️. Salir")
 
-#Permitir al usuario seleccionar la moneda de origen y destino (USD, EUR, MXN)
+# Permitir al usuario seleccionar la moneda de origen y destino (USD, EUR, MXN)
 def convertCurrency():  
-    origen = input("Ingresa la moneda de origen (USD, MXN, EUR): ").upper()
-    destino = input("Ingresa la moneda de destino (USD, MXN, EUR): ").upper()
+    origen = input("💱 Ingresa la moneda de origen (USD, MXN, EUR): ").upper()
+    destino = input("💲 Ingresa la moneda de destino (USD, MXN, EUR): ").upper()
 
     if origen == destino:
-        print("Las monedas son iguales. No es necesaria la conversión.")
+        print("⚠️ Las monedas son iguales. No es necesaria la conversión.")
         return
     
     try:
-        cantidad = float(input("Ingresa la cantidad a convertir: "))
+        cantidad = float(input("💰 Ingresa la cantidad a convertir: "))
     except ValueError:
-        print("Error: Ingresa un número válido.")
+        print("❌ Error: Ingresa un número válido.")
         return
     
-    #Operaciones para el cambio de moneda
+    # Operaciones para el cambio de moneda
     if origen == "USD" and destino == "MXN": 
         resultado = cantidad * usd[0]
-        print(cantidad, origen, "equivale a",resultado, destino)
-        
     elif origen == "USD" and destino == "EUR":
         resultado = cantidad * usd[1]
-        print(cantidad, origen, "equivale a", resultado, destino)
-
     elif origen == "MXN" and destino == "EUR":
         resultado = cantidad * mxn[0]
-        print(cantidad, origen, "equivale a", resultado, destino)
-
     elif origen == "MXN" and destino == "USD":
         resultado = cantidad * mxn[1]
-        print(cantidad, origen, "equivale a", resultado, destino)
-    
     elif origen == "EUR" and destino == "USD":
         resultado = cantidad * eur[0]
-        print(cantidad, origen, "equivale a", resultado, destino)
-
     elif origen == "EUR" and destino == "MXN":
         resultado = cantidad * eur[1]
-        print(cantidad, origen, "equivale a", resultado, destino)
-
     else:
-        print("Conversión no disponible")
+        print("❌ Conversión no disponible")
+        return
+    
+    print(f"✅ {cantidad} {origen} equivale a {resultado:.2f} {destino}.")
 
-#Mostrar las tasas de cambio al usuario
+# Mostrar las tasas de cambio al usuario
 def showExchangeCurrency(): 
-    print("Tasas de cambio actuales")
-    print("USD =", usd[0], "MXN")
-    print("USD =", usd[1], "EUR")
-    print("MXN =", mxn[0], "EUR")
-    print("MXN =", mxn[1], "USD")
-    print("EUR =", eur[0], "USD")
-    print("EUR =", eur[1], "MXN")
+    print("\n📊 Tasas de cambio actuales:")
+    print(f"💵 USD = {usd[0]} MXN")
+    print(f"💵 USD = {usd[1]} EUR")
+    print(f"💵 MXN = {mxn[0]} EUR")
+    print(f"💵 MXN = {mxn[1]} USD")
+    print(f"💵 EUR = {eur[0]} USD")
+    print(f"💵 EUR = {eur[1]} MXN")
 
-#Actualizar las tasas de cambio
+# Actualizar las tasas de cambio
 def updateExchangeCurrency(): 
-    origen = input("Ingresa la moneda de origen (USD, MXN, EUR):").upper()
-    destino = input("Ingresa la moneda de destino (USD, MXN, EUR):").upper()
+    origen = input("✍️ Ingresa la moneda de origen (USD, MXN, EUR): ").upper()
+    destino = input("✍️ Ingresa la moneda de destino (USD, MXN, EUR): ").upper()
     
     try:
-        nuevaTasa = float(input("Ingresa la nueva tasa: "))
+        nuevaTasa = float(input("🔄 Ingresa la nueva tasa: "))
     except ValueError:
-        print("Error: Ingresa un número válido.")
+        print("❌ Error: Ingresa un número válido.")
         return
 
     if origen == "USD" and destino == "MXN":
         usd[0] = nuevaTasa
-        print("Tasa actualizada: de USD a MXN =", usd[0])
-
     elif origen == "USD" and destino == "EUR":
         usd[1] = nuevaTasa
-        print("Tasa actualizada: de USD a EUR =", usd[1])
-
     elif origen == "MXN" and destino == "EUR":
         mxn[0] = nuevaTasa
-        print("Tasa actualizada: de MXN a EUR =", mxn[0])
-
     elif origen == "MXN" and destino == "USD":
         mxn[1] = nuevaTasa
-        print("Tasa actualizada: de MXN a USD =", mxn[1])
-    
     elif origen == "EUR" and destino == "USD":
         eur[0] = nuevaTasa
-        print("Tasa actualizada: de EUR a USD =", eur[0])
-
     elif origen == "EUR" and destino == "MXN":
         eur[1] = nuevaTasa
-        print("Tasa actualizada: de EUR a MXN =", eur[1])
-
     else:
-        print("Par de monedas no válido")
+        print("❌ Par de monedas no válido")
         return
+    
+    print(f"✅ Tasa actualizada: de {origen} a {destino} = {nuevaTasa}")
 
 while True:
     showMenu()
-    opcionElegida = input("Seleccione la opción que desea ejecutar: ")
+    opcionElegida = input("🔹 Seleccione la opción que desea ejecutar: ")
 
     if opcionElegida == "1":
         convertCurrency()
-
     elif opcionElegida == "2":
         showExchangeCurrency()
-
     elif opcionElegida == "3":
         updateExchangeCurrency()
-
     elif opcionElegida == "4":
-        print("Gracias por usar el conversor de monedas. ¡Hasta luego!")
+        print("👋 Gracias por usar el conversor de monedas. ¡Hasta luego!")
         break
-
     else:
-        print("Opción no válida. Intenta de nuevo.")
+        print("❌ Opción no válida. Intenta de nuevo.")
+
